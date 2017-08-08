@@ -1,0 +1,13 @@
+{
+  "name": "Dasher",
+  "version": "0.1",
+  "slug": "dasher",
+  "description": "Amazon Dash button support",
+  "startup": "before",
+  "boot": "auto",
+  "url": "https://github.com/maddox/dasher",
+  "map": ["config:rw", "ssl"],
+  "host_network": "True",
+  "options": {},
+  "schema": {}
+}
