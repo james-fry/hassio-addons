@@ -35,7 +35,7 @@ i.e.
 .../config/dasher/config.json
 
 
-Here's an example.
+Here's an example. Note that button two "Party Time" is a home assistant example...
 
 ```json
 {"buttons":[
@@ -82,13 +82,53 @@ Here's an example.
 ]}
 ```
 
+Another example:
+
+```json
+{"buttons":[
+  {
+    "name": "Lounge Lights",
+    "address": "50:f5:da:07:e1:fa",
+    "interface": "ens160",
+    "url": "http://hassio:8123/api/services/light/toggle",
+    "method": "POST",
+    "headers": {"x-ha-access": "password"},
+    "json": true,
+    "body": {"entity_id": "light.living_room"}
+  },
+  {
+    "name": "Downstairs Lights",
+    "address": "44:65:0d:2e:7a:11",
+    "interface": "ens160",
+    "url": "http://hassio:8123/api/services/light/turn_off",
+    "method": "POST",
+    "headers": {"x-ha-access": "password"},
+    "json": true,
+    "body": {"entity_id": "group.downstairs_switches"}
+  },
+  {
+    "name": "Downstairs Switches",
+    "address": "44:65:0d:2e:7a:11",
+    "interface": "ens160",
+    "url": "http://hassio:8123/api/services/switch/turn_off",
+    "method": "POST",
+    "headers": {"x-ha-access": "password"},
+    "json": true,
+    "body": {"entity_id": "group.downstairs_switches"}
+  }
+]}
+```
+
+Note that the interface specified is the network interface on your hassio host.
+Often eth0.
+
 Buttons take up to 13 options.
 
 * `name` - Optionally give the button action a name.
 * `address` - The MAC address of the button.
 * `interface` - Optionally listen for the button on a specific network interface. (`enX` on OS X and `ethX` on Linux)
 * `timeout` - Optionally set the time required between button press detections (if multiple pressese are detected) in milliseconds. Default is 5000.
-* `protocol` - Optionally set the protocol for your Dash button. Options are udp, arp, and all. Default listens to arp. The "newer" JK29LP button from ~Q2 2016+ tends to use udp. 
+* `protocol` - Optionally set the protocol for your Dash button. Options are udp, arp, and all. Default listens to arp. The "newer" JK29LP button from ~Q2 2016+ tends to use udp.
 * `url` - The URL that will be requested.
 * `method` - The HTTP method of the request.
 * `headers` - Optional headers to use in the request.
@@ -134,18 +174,18 @@ The button will be set up and available on your network.
 #### Find Dash Button
 
 Once your Dash button is set up and on your network, you need to determine its
-MAC address. 
-Because Dasher is running in a Docker container, scanning for Dash buttons requires you to open a shell in the container.
-You can achieve this by opening a shell on the Hass.io host, and then:
+MAC address. Because Dasher is running in a Docker container, scanning for Dash buttons requires you to open a shell in the container. You can achieve this by opening a shell on the Hass.io host, and then running:
 
     docker ps
 
 Find the Dasher container's name -e.g. addon_dasher
-Then attach to the container with:
+
+Then open a bash shell on the container with:
 
     docker exec -i -t addon_dasher /bin/bash
 
 You can also use a Docker management tool such as Portainer https://github.com/portainer/portainer.
+
 Check that your dir is /root/dasher then run this:
 
     node node_modules/node-dash-button/bin/findbutton
@@ -154,7 +194,7 @@ Click your Dash button and the script will listen for your device. Dash buttons 
 its MAC address you will be able to configure it in Dasher by modifying `config.json` after installing Dasher.
 
 Then create a `config.json` in the hass.io config dir `config/dasher` to set up your Dash buttons. Use the
-example to help you. If you just want to test the button press, use the debug button example with the MAC address you found running script/find_button. 
+example to help you. If you just want to test the button press, use the debug button example with the MAC address you found running script/find_button.
 
 
 ## Contributions
