@@ -1,6 +1,6 @@
 {
   "name": "Grafana",
-  "version": "v4.2.0",
+  "version": "latest",
   "slug": "grafana",
   "image": "grafana/grafana",
   "description": "Grafana addon. Image used is grafana official",
