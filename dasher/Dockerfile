@@ -18,4 +18,4 @@ RUN cd /root/dasher && npm install
 #RUN chmod a+x /run.sh
 
 #CMD [ "/run.sh" ]
-CMD cd /root/dasher && cp /config/dasher/config.json /root/dasher/config/config.json && npm run start
+CMD cd /root/dasher && cp /data/options.json /root/dasher/config/config.json && npm run start
