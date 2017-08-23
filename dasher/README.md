@@ -29,10 +29,8 @@ it in your config.
 You define your buttons via the `config.json` file. It's a simple JSON
 file that holds an array of buttons.
 
-Your config file should be placed in the hassio config dir in a subdir called dasher
-i.e.
-
-.../config/dasher/config.json
+The config file must be entered via the Hass.io add-on options.
+The example config below is the preset example provided by the add-on.
 
 
 Here's an example. Note that button two "Party Time" is a home assistant example...
@@ -193,7 +191,7 @@ Check that your dir is /root/dasher then run this:
 Click your Dash button and the script will listen for your device. Dash buttons should appear as manufactured by 'Amazon Technologies Inc.'. Once you have
 its MAC address you will be able to configure it in Dasher by modifying `config.json` after installing Dasher.
 
-Then create a `config.json` in the hass.io config dir `config/dasher` to set up your Dash buttons. Use the
+Then create a `config.json` via the options entry in the hass.io add-in options. Use the
 example to help you. If you just want to test the button press, use the debug button example with the MAC address you found running script/find_button.
 
 
