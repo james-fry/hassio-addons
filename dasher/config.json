@@ -1,6 +1,6 @@
 {
   "name": "Dasher",
-  "version": "0.2",
+  "version": "0.1",
   "slug": "dasher",
   "description": "Amazon Dash button support",
   "startup": "before",
@@ -8,68 +8,6 @@
   "url": "https://github.com/james-fry/hassio-addons/tree/master/dasher",
   "map": ["config:rw", "ssl"],
   "host_network": "True",
-  "options": {
-    "buttons":[
-      {
-        "name": "Notify",
-        "address": "43:02:dc:b2:ab:23",
-        "interface": "en0",
-        "timeout": "60000",
-        "protocol": "udp",
-        "url": "https://maker.ifttt.com/trigger/Notify/with/key/5212ssx2k23k2k",
-        "method": "POST",
-        "json": true,
-        "body": {"value1": "any value", "value2": "another value", "value3": "wow, even more value"}
-      },
-      {
-        "name": "Party Time",
-        "address": "d8:02:dc:98:63:49",
-        "url": "http://192.168.1.55:8123/api/services/scene/turn_on",
-        "method": "POST",
-        "headers": {"authorization": "your_password"},
-        "json": true,
-        "body": {"entity_id": "scene.party_time"},
-        "formData": {
-          "var1":"val1",
-          "var2":" val2"
-        }
-      },
-      {
-        "name": "Start Cooking Playlist",
-        "address": "66:a0:dc:98:d2:63",
-        "url": "http://192.168.1.55:8181/playlists/cooking/play",
-        "method": "PUT"
-      },
-      {
-        "name": "Debug Dash Button",
-        "address": "41:02:dc:b2:ab:23",
-        "debug": true
-      },
-      {
-        "name": "Command Exec Button",
-        "address": "41:02:dc:b2:10:12",
-        "cmd": "/home/user/dash_button.sh"
-      }
-    ]
-  },
-  "schema":
-  {
-    "buttons": [
-      {
-        "name": "str",
-        "address": "str",
-        "interface": "str",
-        "timeout": "int",
-        "protocol": "str",
-        "url": "str",
-        "method": "str",
-        "headers": "str",
-        "json": "bool",
-        "body": "str",
-        "formData": "str",
-        "debug": "str",
-        "cmd": "str"
-      }
-    ]
-  }
+  "options": {},
+  "schema": {}
 }
