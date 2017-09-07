@@ -3,7 +3,7 @@
   "version": "latest",
   "slug": "grafana",
   "image": "grafana/grafana",
-  "description": "Grafana addon. Image used is grafana official",
+  "description": "Deprecated - please use the multi-arch version in this repo: https://github.com/bestlibre/hassio-addons. Grafana addon. Image used is grafana official",
   "url": "https://hub.docker.com/r/grafana/grafana/",
   "startup": "before",
   "boot": "auto",
