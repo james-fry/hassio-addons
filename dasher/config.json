@@ -1,6 +1,6 @@
 {
   "name": "Dasher",
-  "version": "0.1",
+  "version": "0.2",
   "slug": "dasher",
   "description": "Amazon Dash button support",
   "startup": "before",
