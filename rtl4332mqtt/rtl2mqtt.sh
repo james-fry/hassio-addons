@@ -147,18 +147,27 @@
 #
 # * Disabled by default, use -R n or -G
 
-set -x
-
 export LANG=C
 PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
 
-# Start the listener and enter an endless loop
-echo "Starting RTL..."
-# This example uses 345MHz to scan for Honeywell devices
-#/usr/local/bin/rtl_433 -f 345000000 -F json -R 70 | while read line
+CONFIG_PATH=/data/options.json
+MQTT_HOST="$(jq --raw-output '.mqtt_host' $CONFIG_PATH)"
+MQTT_USER="$(jq --raw-output '.mqtt_user' $CONFIG_PATH)"
+MQTT_PASS="$(jq --raw-output '.mqtt_password' $CONFIG_PATH)"
+MQTT_TOPIC="$(jq --raw-output '.mqtt_topic' $CONFIG_PATH)"
+PROTOCOL="$(jq --raw-output '.protocol' $CONFIG_PATH)"
 
-# This example uses 433MHz and will scan for CurrentCost
-/usr/local/bin/rtl_433 -F json -R 44 | while read line
+# Start the listener and enter an endless loop
+echo "Starting RTL_433 with parameters:"
+echo "MQTT Host =" $MQTT_HOST
+echo "MQTT User =" $MQTT_USER
+echo "MQTT Password =" $MQTT_PASS
+echo "MQTT Topic =" $MQTT_TOPIC
+echo "RTL_433 Protocol =" $PROTOCOL
+
+#set -x  ## uncomment for MQTT logging...
+
+/usr/local/bin/rtl_433 -F json -R $PROTOCOL | while read line
 do
   # Create file with touch /tmp/rtl_433.log if logging is needed
   [ -w /tmp/rtl_433.log ] && echo $line >> rtl_433.log
