@@ -15,7 +15,7 @@ which is in turn based on Marco Verleun's rtl2mqtt image here: https://github.co
 - mqtt_topic
 - protocol (see https://github.com/merbanan/rtl_433 for more details inc protocol IDs)
 
-3) Copy rtl2mqtt.sh to your hass.io config dir in a subdir called rtl4332mqt.
+3) Copy rtl2mqtt.sh to your hass.io config dir in a subdir called rtl4332mqtt.
 i.e.
 .../config/rtl4332mqtt/rtl2mqtt.sh
 This allows you to edit the start script if you need to make any changes
