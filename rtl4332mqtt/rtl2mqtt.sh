@@ -144,7 +144,16 @@
 #     [89]  Ford TPMS
 #     [90]  Renault TPMS
 #     [91]* inFactory
-#
+#    [92]  FT-004-B Temperature Sensor
+#    [93]  Ford Car Key
+#    [94]  Philips outdoor temperature sensor
+#    [95]  Schrader TPMS EG53MA4
+#    [96]  Nexa
+#    [97]  Thermopro TP12 Thermometer
+#    [98]  GE Color Effects
+#    [99]  X10 Security
+#    [100]  Interlogix GE UTC Security Devices
+#    [101]* Dish remote 6.3
 # * Disabled by default, use -R n or -G
 
 export LANG=C
@@ -156,6 +165,9 @@ MQTT_USER="$(jq --raw-output '.mqtt_user' $CONFIG_PATH)"
 MQTT_PASS="$(jq --raw-output '.mqtt_password' $CONFIG_PATH)"
 MQTT_TOPIC="$(jq --raw-output '.mqtt_topic' $CONFIG_PATH)"
 PROTOCOL="$(jq --raw-output '.protocol' $CONFIG_PATH)"
+FREQUENCY="$(jq --raw-output '.frequency' $CONFIG_PATH)"
+GAIN="$(jq --raw-output '.gain' $CONFIG_PATH)"
+OFFSET="$(jq --raw-output '.frequency_offset' $CONFIG_PATH)"
 
 # Start the listener and enter an endless loop
 echo "Starting RTL_433 with parameters:"
@@ -164,10 +176,13 @@ echo "MQTT User =" $MQTT_USER
 echo "MQTT Password =" $MQTT_PASS
 echo "MQTT Topic =" $MQTT_TOPIC
 echo "RTL_433 Protocol =" $PROTOCOL
+echo "RTL_433 Frequency =" $FREQUENCY
+echo "RTL_433 Gain =" $GAIN
+echo "RTL_433 Frequency Offset =" $OFFSET
 
 #set -x  ## uncomment for MQTT logging...
 
-/usr/local/bin/rtl_433 -F json -R $PROTOCOL | while read line
+/usr/local/bin/rtl_433 -F json -R $PROTOCOL -f $FREQUENCY -g $GAIN -p $OFFSET | while read line
 do
   # Create file with touch /tmp/rtl_433.log if logging is needed
   [ -w /tmp/rtl_433.log ] && echo $line >> rtl_433.log
