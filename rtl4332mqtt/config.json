@@ -15,8 +15,10 @@
     "mqtt_user": "",
     "mqtt_password": "",
     "mqtt_topic": "homeassistant/sensor/currentcost",
-    "protocol": 44
-    "frequency": 319500000
+    "protocol": 100,
+    "frequency": 319500000,
+    "gain": 60,
+    "frequency_offset": 350
   },
   "schema":
   {
@@ -25,6 +27,8 @@
     "mqtt_password": "str",
     "mqtt_topic": "str",
     "protocol": "int",
-    "frequency": "int"
+    "frequency": "int",
+    "gain": "int",
+    "frequency_offset": "int"
    }
 }
