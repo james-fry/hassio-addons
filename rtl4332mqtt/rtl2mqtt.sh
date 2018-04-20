@@ -169,7 +169,19 @@ echo "RTL_433 Protocol =" $PROTOCOL
 
 /usr/local/bin/rtl_433 -F json -R $PROTOCOL | while read line
 do
+  DEVICE="$(echo $line | jq --raw-output '.model' | tr -s ' ' '_')" # replace ' ' with '_'
+  DEVICEID="$(echo $line | jq --raw-output '.id' | tr -s ' ' '_')"
+
+  MQTT_PATH=$MQTT_TOPIC
+
+  if [ ${#DEVICE} > 0 ]; then
+    MQTT_PATH=$MQTT_PATH/"$DEVICE"
+  fi
+  if [ ${#DEVICEID} > 0 ]; then
+    MQTT_PATH=$MQTT_PATH/"$DEVICEID"
+  fi
+
   # Create file with touch /tmp/rtl_433.log if logging is needed
   [ -w /tmp/rtl_433.log ] && echo $line >> rtl_433.log
-  echo $line | /usr/bin/mosquitto_pub -h $MQTT_HOST -u $MQTT_USER -P $MQTT_PASS -i RTL_433 -r -l -t $MQTT_TOPIC
+  echo $line | /usr/bin/mosquitto_pub -h $MQTT_HOST -u $MQTT_USER -P $MQTT_PASS -i RTL_433 -r -l -t $MQTT_PATH
 done
