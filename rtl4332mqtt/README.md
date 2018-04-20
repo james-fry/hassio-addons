@@ -80,10 +80,3 @@ Then run the following command on the host
 ```bash
 sudo rmmod dvb_usb_rtl28xxu rtl2832
 ```
-
-## Note
-
-Due to a bug in RTL_433 I am currently using a fork with changes to remove the bug.
-As/when the defect is fixed in RTL_433 then I will update the dockerfile to revert to the rtl_433 master
-See: https://github.com/merbanan/rtl_433/issues/610
-My fork: https://github.com/james-fry/rtl_433 where you can view the delta
