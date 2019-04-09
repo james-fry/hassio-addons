@@ -9,5 +9,11 @@
   "map": ["config:rw", "ssl"],
   "host_network": "True",
   "options": {},
-  "schema": {}
+  "schema": {},
+  "arch": [
+    "aarch64",
+    "amd64",
+    "armv7",
+    "i386"
+]
 }
