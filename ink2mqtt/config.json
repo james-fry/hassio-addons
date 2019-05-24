@@ -1,0 +1,34 @@
+{
+  "name": "ink to MQTT",
+  "version": "0.1",
+  "slug": "ink2mqtt",
+  "description": "BETA: Query network printer using Ink (http://ink.sourceforge.net/) and send ink levels via MQTT",
+  "url": "https://github.com/james-fry/hassio-addons/tree/master/rtl4332mqtt",
+  "startup": "before",
+  "boot": "auto",
+  "map": ["config:rw", "ssl"],
+  "devices": ["/dev/bus/usb:/dev/bus/usb:rwm"],
+  "host_network": "False",
+  "arch": [
+    "aarch64",
+    "amd64",
+    "armv7",
+    "i386"
+  ],
+  "options":
+  {
+    "mqtt_host": "hassio.local",
+    "mqtt_user": "",
+    "mqtt_password": "",
+    "printer_ip": "192.168.1.237",
+    "interval": 3600
+  },
+  "schema":
+  {
+    "mqtt_host": "str",
+    "mqtt_user": "str",
+    "mqtt_password": "str",
+    "printer_ip": "str",
+    "interval": "int"
+   }
+}
