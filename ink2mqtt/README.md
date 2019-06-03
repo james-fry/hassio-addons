@@ -6,7 +6,7 @@ Tested with Canon Pixma MG5300 Printer only
 # Instructions:
 1) Deploy the hassio addon
 2) Create a dir in the hassio config dir called ink2mqtt
-3) Copy the ink2mqtt.sh shell script from the repo into that dir
+3) Copy the ink2mqtt.sh shell script from the repo into that dir. NOTE - please consider to add this file via ssh rather than samba.
 4) Edit the ink2mqtt.sh shell script if/as needed for your printer
 
 I am very aware that the ink2mqtt.sh shell script is far from production ready. Its hacked together but works for my printer.
