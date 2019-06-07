@@ -9,7 +9,7 @@ Tested with my Canon Pixma MG5300 printer and with a Canon Pixma MG7500 printer 
 3) Download the discover.sh shell script from the repo into that dir. NOTE - this will only work from the SSH-command-prompt!
 4) Enter valid data for the addon Config:
 ```
-  "mqtt_host": "192.168.x.xyz",
+  "mqtt_host": "192.168.x.xyz", #can also be a hostname
   "mqtt_user": "your username",
   "mqtt_password": "your password",
   "printer_ip": "your printer IP", #best make sure this is a fixed IP,
