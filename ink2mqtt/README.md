@@ -7,6 +7,7 @@ Tested with my Canon Pixma MG5300 printer and with a Canon Pixma MG7500 printer 
 1) Deploy the hassio addon.
 2) Create a new dir in the hassio config dir called ink2mqtt
 3) Download the discover.sh shell script from the repo into that dir. NOTE - this will only work from the SSH-command-prompt!
+4) Rename the file discover.sh to ink2mqtt.sh
 4) Enter valid data for the addon Config:
 ```
   "mqtt_host": "192.168.x.xyz", #can also be a hostname
@@ -18,7 +19,7 @@ Tested with my Canon Pixma MG5300 printer and with a Canon Pixma MG7500 printer 
 5) Start the addon
 6) Scroll down to where the log is shown. Notice the printer name: "BRAND TYPE series" and the names of the CARTRIDGES.
 7) Stop the addon.
-8) Download the ink2mqtt.sh shell script from the repo into the config/ink2mqtt dir. Again, via SSH.
+8) Delete the existing config/ink2mqtt/ink2mqtt.sh file. Now, download the ink2mqtt.sh shell script from the repo into the config/ink2mqtt dir. Again, via SSH.
 9) Open the file ink2mqqt.sh in the Home Assistant editor and adjust the following text:
 "BRAND"="Canon" - replace Canon by your printer BRAND as found at step 6.
 "TYPE"="MG7500" - replace MG7500 by your printer TYPE as found at step 6.
