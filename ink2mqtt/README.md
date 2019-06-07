@@ -1,7 +1,7 @@
 # Ink to MQTT Bridge hass.io addon - BETA
 Query network printer using Ink (http://ink.sourceforge.net/) and send ink levels via MQTT
 
-Tested with Canon Pixma MG5300 Printer and with a Canon Pixma MG7500 by bouwew.
+Tested with my Canon Pixma MG5300 printer and with a Canon Pixma MG7500 printer by bouwew.
 
 # Instructions:
 1) Deploy the hassio addon
