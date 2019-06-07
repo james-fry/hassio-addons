@@ -1,13 +1,28 @@
 # Ink to MQTT Bridge hass.io addon - BETA
 Query network printer using Ink (http://ink.sourceforge.net/) and send ink levels via MQTT
 
-Tested with Canon Pixma MG5300 Printer only
+Tested with Canon Pixma MG5300 Printer and with a Canon Pixma MG7500 by bouwew.
 
 # Instructions:
 1) Deploy the hassio addon
 2) Create a dir in the hassio config dir called ink2mqtt
-3) Copy the ink2mqtt.sh shell script from the repo into that dir. NOTE - please consider to add this file via ssh rather than samba.
-4) Edit the ink2mqtt.sh shell script if/as needed for your printer
+3) Download the discover.sh shell from the repo into that dir. NOTE - this will only work from the SSH-command-prompt!
+4) Enter the Config-data:
+  "mqtt_host": "192.168.x.xyz",
+  "mqtt_user": "your username",
+  "mqtt_password": "your password",
+  "printer_ip": "your printer IP, best make sure this is a fixed IP",
+  "interval": 3600, or any number you like
+5) Start the addon
+6) Scroll down to where the log is shown. Notice the printer name: BRAND TYPE series and the names of the CARTRIDGES.
+7) Stop the addon.
+8) Download the ink2mqtt.sh shell script from the repo into the config/ink2mqtt dir. Again, via SSH.
+9) Adjust the following:
+"BRAND"="Canon" replace Canon by your printer brand as found at step 6.
+"TYPE"="MG7500" replace MG7500 by your printer type as found at step 6.
+Change this line: json_attributes=(Black Photoblack Yellow Magenta Cyan Photogrey), replace the list of names/colors by the names of the CARTRIDGES found at step 6.
+Now, save the file.
+10) Finally, start the addon once more. Scroll down to the log-area for the result.
 
 I am very aware that the ink2mqtt.sh shell script is far from production ready. Its hacked together but works for my printer.
 The ink2mqtt.sh shell script supports HA MQTT autodiscovery, but only for my Canon Pixma 5300 series - it is very hard-coded.
