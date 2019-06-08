@@ -20,6 +20,11 @@ i.e.
 .../config/rtl4332mqtt/rtl2mqtt.sh
 This allows you to edit the start script if you need to make any changes
 
+NOTE that some people have reported issues using samba to copy the script. For some reason it does not get copied to the container on start up of the addon. If you see this issue, please scp the script to your hassio config folder, or ssh in and edit the file locally with vi/nano.
+
+Also there is now an example rtl2mqtt script with MQTT sensor autodiscovery. This is very hard coded to a single sensor currentcost, but might be an interesting example for others to repurpose...
+
+
 4) Start the addon
 
 
