@@ -32,10 +32,7 @@ json_attributes=(Black Photoblack Yellow Magenta Cyan Photogrey)
 for i in "${json_attributes[@]}"
 do
   echo "$i"
-#  AUTO_D="{\"unit_of_measurement\":\"%\",\"icon\":\"mdi:water\",\"value_template\":\"{{ value_json.$i }}\",\"state_topic\":\"ink2mqtt/CanonMG5300\",\"json_attributes_topic\":\"ink2mqtt/CanonMG5300\",\"name\":\"Canon MG5300 $i 
-#Ink Level\",\"unique_id\":\"Canon MG5300 series_"$i"_ink2mqtt\",\"device\":{\"identifiers\":\"Canon MG5300 series\",\"name\":\"Canon MG5300 series\",\"sw_version\":\"2.030\",\"model\":\"MG5300 series\",\"manufacturer\":\"Canon\"}}"
-  AUTO_D="{\"unit_of_measurement\":\"%\",\"icon\":\"mdi:water\",\"value_template\":\"{{ value_json.$i }}\",\"state_topic\":\"ink2mqtt/"$BRAND""$TYPE"\",\"json_attributes_topic\":\"ink2mqtt/"$BRAND""$TYPE"\",\"name\":\"$BRAND 
-$TYPE $i Ink Level\",\"unique_id\":\"$BRAND $TYPE series_"$i"_ink2mqtt\",\"device\":{\"identifiers\":\"$BRAND $TYPE series\",\"name\":\"$BRAND $TYPE series\",\"sw_version\":\"2.020\",\"model\":\"$TYPE 
+  AUTO_D="{\"unit_of_measurement\":\"%\",\"icon\":\"mdi:water\",\"value_template\":\"{{ value_json.$i }}\",\"state_topic\":\"ink2mqtt/"$BRAND""$TYPE"\",\"name\":\"$BRAND $TYPE $i Ink Level\",\"unique_id\":\"$BRAND $TYPE series_"$i"_ink2mqtt\",\"device\":{\"identifiers\":\"$BRAND $TYPE series\",\"name\":\"$BRAND $TYPE series\",\"sw_version\":\"2.020\",\"model\":\"$TYPE 
 series\",\"manufacturer\":\"$BRAND\"}}"
   echo $AUTO_D
   echo $AUTO_D | mosquitto_pub -h $MQTT_HOST -u $MQTT_USER -P $MQTT_PASS -i ink2mqtt -r -l -t homeassistant/sensor/"$BRAND"_"$TYPE"/$i/config
