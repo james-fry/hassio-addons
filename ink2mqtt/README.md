@@ -5,7 +5,7 @@ Tested with my Canon Pixma MG5300 printer and with Canon Pixma printers MG7550 a
 
 # Instructions:
 1) Deploy the hassio addon.
-2) Enter valid data for the addon Config:
+2) Enter valid data into the addon Config:
 ```
   "mqtt_host": "MQTT broker IP address"  # can also be a hostname
   "mqtt_user": "MQTT-username"
