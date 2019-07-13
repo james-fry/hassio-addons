@@ -43,5 +43,4 @@ ENV MQTT_USER="guest"
 ENV MQTT_PASS="guest"
 ENV MQTT_TOPIC="homeassistant/sensor/ink"
 
-#CMD cd / && cp /config/ink2mqtt/ink2mqtt.sh /ink2mqtt.sh && chmod +x /ink2mqtt.sh && chmod +x /ink2mqtt.sh && /ink2mqtt.sh
 CMD /ink2mqtt.sh
