@@ -40,10 +40,4 @@ ENV MQTT_USER="guest"
 ENV MQTT_PASS="guest"
 ENV MQTT_TOPIC="homeassistant/sensor/ink"
 
-CMD ["sh","-c","cd /config && mkdir ink2mqtt"]
-#CMD cd ink2mqtt && \
-#wget https://raw.githubusercontent.com/bouwew/hassio-addons/master/ink2mqtt/config/ink2mqtt/discover.sh && \
-#wget https://raw.githubusercontent.com/bouwew/hassio-addons/master/ink2mqtt/config/ink2mqtt/ink2mqtt.sh && \
-#cp ink2mqtt.sh /ink2mqtt.sh && \
-#chmod +x /ink2mqtt.sh && \
-#/ink2mqtt.sh
+CMD cd / && cp /config/ink2mqtt/ink2mqtt.sh /ink2mqtt.sh && chmod +x /ink2mqtt.sh && /ink2mqtt.sh
