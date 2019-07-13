@@ -13,6 +13,6 @@ Tested with my Canon Pixma MG5300 printer and with Canon Pixma printers MG7550 a
   "printer_ip": "Printer IP",            # best make sure this is a fixed IP,
   "interval": 3600                       # or any number you like
 ```
-5) Start the addon
+5) Make sure the printer is on, then start the addon
 
 Enjoy!
