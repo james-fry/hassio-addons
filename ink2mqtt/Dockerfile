@@ -30,7 +30,7 @@ cd ink-0.5.3 && \
 make && \
 make install && \
 apk add --no-cache mosquitto-clients jq && \
-cd / &&
+cd / && \
 curl -L http://raw.githubusercontent.com/bouwew/hassio-addons/master/ink2mqtt/config/ink2mqtt/ink2mqtt.sh > ink2mqtt.sh && \
 chmod +x /ink2mqtt.sh
 
