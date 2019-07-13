@@ -29,10 +29,7 @@ cd ink-0.5.3 && \
 ./configure && \
 make && \
 make install && \
-apk add --no-cache mosquitto-clients jq && \
-cd / && \
-curl -L http://raw.githubusercontent.com/bouwew/hassio-addons/master/ink2mqtt/config/ink2mqtt/ink2mqtt.sh > ink2mqtt.sh && \
-chmod +x /ink2mqtt.sh
+apk add --no-cache mosquitto-clients jq
 
 #
 # Define an environment variable
@@ -43,4 +40,8 @@ ENV MQTT_USER="guest"
 ENV MQTT_PASS="guest"
 ENV MQTT_TOPIC="homeassistant/sensor/ink"
 
-CMD /ink2mqtt.sh
+CMD \
+cd / && \
+curl -L http://raw.githubusercontent.com/bouwew/hassio-addons/master/ink2mqtt/config/ink2mqtt/ink2mqtt.sh > ink2mqtt.sh && \
+chmod +x /ink2mqtt.sh && \
+/ink2mqtt.sh
