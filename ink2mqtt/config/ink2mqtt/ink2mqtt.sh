@@ -28,8 +28,6 @@ fi
 # Start the listener and enter an endless loop
 echo "Parameters:"
 echo "MQTT Host =" $MQTT_HOST
-echo "MQTT User =" $MQTT_USER
-echo "MQTT Password =" $MQTT_PASS
 echo "Printer IP address =" $PRINTERIP
 echo "Sleep interval =" $INTERVAL
 echo "Brand = " $BRAND
