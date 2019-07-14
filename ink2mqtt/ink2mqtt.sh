@@ -12,6 +12,7 @@ MQTT_PASS="$(jq --raw-output '.mqtt_password' $CONFIG_PATH)"
 PRINTERIP="$(jq --raw-output '.printer_ip' $CONFIG_PATH)"
 INTERVAL="$(jq --raw-output '.interval' $CONFIG_PATH)"
 
+ink -b bjnp://$PRINTERIP
 mapfile -t lines < <(ink -b bjnp://$PRINTERIP | cut -d: -f1)
 if [ "${lines[2]}" != "" ]; then
    PRINTER=${lines[2]}
