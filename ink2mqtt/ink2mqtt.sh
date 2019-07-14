@@ -64,7 +64,8 @@ while true; do
      do
        temp=${lines[i]//%}
        temp=${temp//[[:space:]]/}
-       payload=$payload", \"$temp\""
+       temp=\"$temp\"
+       payload=$payload",$temp"
      done
      payload=$payload" }"
      datetime=`date`
