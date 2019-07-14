@@ -44,7 +44,7 @@ echo "MQTT autodiscovery for all ink colours:"
 for i in "${json_attributes[@]}"
 do
   echo "$i"
-  AUTO_D="{\"unit_of_measurement\": \"%\", \"icon\": \"mdi:water\", \"value_template\": \"{{ value_json.$i }}\", \"state_topic\": \"ink2mqtt/"$BRAND""$TYPE"\", \"name\": \"$BRAND $TYPE $EXTRA $i Ink Level\", \"unique_id\": \"$BRAND_$TYPE_"$i"_ink2mqtt\", \"device\": {\"identifiers\": \"$BRAND $TYPE $EXTRA\", \"manufacturer\": \"$BRAND\", \"model\": \"$TYPE $EXTRA\"}}"
+  AUTO_D="{\"unit_of_measurement\": \"%\", \"icon\": \"mdi:water\", \"value_template\": \"{{ value_json.$i }}\", \"state_topic\": \"ink2mqtt/"$BRAND""$TYPE"\", \"name\": \"$BRAND $TYPE $EXTRA $i Ink Level\", \"unique_id\": \"$BRAND$TYPE_\"$i\"_ink2mqtt\", \"device\": {\"identifiers\": \"$BRAND $TYPE $EXTRA\", \"manufacturer\": \"$BRAND\", \"model\": \"$TYPE $EXTRA\"}}"
   echo $AUTO_D
   echo $AUTO_D | mosquitto_pub -h $MQTT_HOST -u $MQTT_USER -P $MQTT_PASS -i ink2mqtt -r -l -t homeassistant/sensor/"$BRAND"_"$TYPE"/$i/config
   echo
