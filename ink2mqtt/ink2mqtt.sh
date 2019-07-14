@@ -64,7 +64,7 @@ while true; do
      do
        temp=${lines[i]//%}
        temp=${temp//[[:space:]]/}
-       temp=${temp/:/":"}
+       temp=${temp/:/'":"'}
        temp=\"$temp\"
        payload=$payload",$temp"
      done
