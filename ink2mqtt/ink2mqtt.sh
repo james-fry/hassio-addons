@@ -62,9 +62,10 @@ while true; do
      numlines=${#lines[@]}
      for (( i=4; i<=$numlines-1; i++ ))
      do
-       payload=$payload", ${lines[i]//' :'/':"'}"
+       temp=${lines[i]//%}
+       payload=$payload", $temp"
      done
-     payload=$payload' }'
+     payload=$payload" }"
      datetime=`date`
      echo $datetime " -- " $payload | sed -e 's/: /": /g'
      #echo $payload | sed -e 's/: /": /g'  | /usr/bin/mosquitto_pub -h $MQTT_HOST -u $MQTT_USER -P $MQTT_PASS -i ink2mqtt -r -l -t ink2mqtt/"$BRAND""$TYPE"
