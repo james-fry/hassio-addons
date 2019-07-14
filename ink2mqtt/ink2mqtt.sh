@@ -62,7 +62,7 @@ while true; do
      numlines=${#lines[@]}
      for (( i=4; i<=$numlines-1; i++ ))
      do
-       payload=$payload", ${lines[i]//%}"
+       payload=$payload", ${lines[i]// :/:"}"
      done
      payload=$payload' }'
      datetime=`date`
