@@ -58,7 +58,8 @@ echo
 while true; do
   mapfile -t lines < <(ink -b bjnp://$PRINTERIP)
   if [ "${lines[2]}" != "" ]; then
-     payload="{ \"Device\":\"${lines[2]}\""
+     temp=\"Device\"
+     payload="{ $temp:\"${lines[2]}\""
      numlines=${#lines[@]}
      for (( i=4; i<=$numlines-1; i++ ))
      do
