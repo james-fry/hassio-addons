@@ -63,6 +63,7 @@ while true; do
      for (( i=4; i<=$numlines-1; i++ ))
      do
        temp=${lines[i]//%}
+       temp=${temp# }
        payload=$payload", $temp"
      done
      payload=$payload" }"
