@@ -45,7 +45,7 @@ for i in "${json_attributes[@]}"
 do
   echo "$i"
   #AUTO_D="{\"unit_of_measurement\":\"%\",\"icon\":\"mdi:water\",\"value_template\":\"{{ value_json.$i }}\",\"state_topic\":\"ink2mqtt/"$BRAND""$TYPE"\",\"name\":\"$BRAND $TYPE $i Ink Level\",\"unique_id\":\"$BRAND $TYPE series_"$i"_ink2mqtt\",\"device\":{\"identifiers\":\"$BRAND $TYPE series\",\"name\":\"$BRAND $TYPE series\",\"sw_version\":\"2.020\",\"model\":\"$TYPE series\",\"manufacturer\":\"$BRAND\"}}"
-  AUTO_D="{\"unit_of_measurement\": \"%\",\"icon\": \"mdi:water\",\"value_template\": \"{{ value_json.$i }}\",\"state_topic\": \"ink2mqtt/"$BRAND""$TYPE"\",\"name\": \"$BRAND $TYPE $i Ink Level\",\"unique_id\": \"$BRAND $TYPE $EXTRA_"$i"_ink2mqtt\",\"device\": {\"identifiers\": \"$BRAND $TYPE $EXTRA\",\"manufacturer\": \"$BRAND\",\"model\": \"$TYPE $EXTRA\"}}"
+  AUTO_D="{\"unit_of_measurement\": \"%\", \"icon\": \"mdi:water\", \"value_template\": \"{{ value_json.$i }}\", \"state_topic\": \"ink2mqtt/"$BRAND""$TYPE"\", \"name\": \"$BRAND $TYPE $i Ink Level\", \"unique_id\": \"$BRAND $TYPE $EXTRA_"$i"_ink2mqtt\", \"device\": {\"identifiers\": \"$BRAND $TYPE $EXTRA\", \"manufacturer\": \"$BRAND\", \"model\": \"$TYPE $EXTRA\"}}"
   echo $AUTO_D
   #echo $AUTO_D | mosquitto_pub -h $MQTT_HOST -u $MQTT_USER -P $MQTT_PASS -i ink2mqtt -r -l -t homeassistant/sensor/"$BRAND"_"$TYPE"/$i/config
   echo
@@ -66,7 +66,7 @@ while true; do
        temp=${temp//[[:space:]]/}
        temp=${temp/:/': "'}
        temp=\"$temp\"
-       payload=$payload",$temp"
+       payload=$payload", $temp"
      done
      payload=$payload"}"
      datetime=`date`
