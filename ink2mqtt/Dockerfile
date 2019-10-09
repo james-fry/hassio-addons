@@ -7,7 +7,7 @@ ENV LANG C.UTF-8
 
 MAINTAINER James Fry
 
-LABEL Description="This image is used to start a script that will monitor for RF events on 433Mhz (configurable) and send the data to an MQTT server"
+LABEL Description="This image is used to start a script that will monitor printer ink and send the data to an MQTT server"
 
 #
 # First install software packages needed to compile rtl_433 and to publish MQTT events
@@ -31,7 +31,7 @@ make && \
 make install && \
 apk add --no-cache mosquitto-clients jq && \
 cd / && \
-curl -L http://raw.githubusercontent.com/bouwew/hassio-addons/master/ink2mqtt/ink2mqtt.sh > ink2mqtt.sh && \
+curl -L https://raw.githubusercontent.com/james-fry/hassio-addons/master/ink2mqtt/ink2mqtt.sh > ink2mqtt.sh && \
 chmod +x /ink2mqtt.sh
 
 #
